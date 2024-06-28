@@ -10,8 +10,8 @@ spec:
       requests: #this is soft limit means this is the minimum value of resources requested
         memory: "128Mi"
         cpu: "100m"
-      limits: #this is hard limit, means max limit of resources which cannot be exceeded.. limits should be atleast one or more than requests.. if this value exceeds containers will not run
+      limits: #this is hard limit, means max limit of resources which cannot be exceeded.. limits should be atleast same or more than requests.. if this value exceeds containers will not run
         memory: "128Mi"
-        cpu: "500m"
+        cpu: "100m"
     ports:
       - containerPort: 80
