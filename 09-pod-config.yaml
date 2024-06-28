@@ -6,14 +6,19 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    env: 
-    - name: course
-      valueFrom:
-        configMapKeyRef: #this refers config map values from 08-config-map.yaml .. so that this pod doesnt need any update if config value changes, only configmap can be updated and that reflects here also
-          name: daws78s 
-          key: course
-    - name: trainer
-      valueFrom:
-        configMapKeyRef: 
-          name: daws78s
-          key: Trainer 
+    #----------------------Below code is to print all configmap values in case there are more in number-----------
+    envFrom:
+    - configMapRef:
+        name: daws78s
+    #--------------Below code is if you wnat to select only few config keys from config map----------------------
+    # env: 
+    # - name: course
+    #   valueFrom:
+    #     configMapKeyRef: #this refers config map values from 08-config-map.yaml .. so that this pod doesnt need any update if config value changes, only configmap can be updated and that reflects here also
+    #       name: daws78s 
+    #       key: course
+    # - name: trainer
+    #   valueFrom:
+    #     configMapKeyRef: 
+    #       name: daws78s
+    #       key: Trainer 
