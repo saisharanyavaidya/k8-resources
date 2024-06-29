@@ -3,7 +3,9 @@ kind: Pod
 metadata:
   name: nginx
   labels:
-    name: service-test
+    name: frontend
+    project: expense
+    component: frontend
     environment: dev
 spec:
   containers:
