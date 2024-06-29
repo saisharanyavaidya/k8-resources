@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-node-port
+  name: nginx-lb
 spec:
   type: LoadBalancer #this means it is a LoadBalancer service
   selector: # below values are given as labels in 12-nginx.yaml...So this service identifies which pod to be called using these selectors
