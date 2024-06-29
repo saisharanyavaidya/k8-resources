@@ -14,3 +14,4 @@ spec:
   - protocol: TCP
     port: 80 #this is service port
     targetPort: 80  #this is nginx server port.. means pod port
+    NodePort: 32768
