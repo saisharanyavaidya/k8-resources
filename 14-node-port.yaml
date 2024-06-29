@@ -14,4 +14,4 @@ spec:
   - protocol: TCP
     port: 80 #this is service port
     targetPort: 80  #this is nginx server port.. means pod port
-    nodePort: 32768 # this means we are giving a fixed node port.. if we dont give this a random node port will be generated
+    nodePort: 32760 # this means we are giving a fixed node port.. if we dont give this a random node port will be generated
