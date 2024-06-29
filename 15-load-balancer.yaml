@@ -1,0 +1,17 @@
+# this is LoadBalancer type service
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-node-port
+spec:
+  type: LoadBalancer #this means it is a LoadBalancer service
+  selector: # below values are given as labels in 12-nginx.yaml...So this service identifies which pod to be called using these selectors
+    name: frontend
+    project: expense
+    component: frontend
+    environment: dev
+  ports:
+  - protocol: TCP
+    port: 80 #this is service port
+    targetPort: 80  #this is nginx server port.. means pod port
+    nodePort: 32761 # this means we are giving a fixed node port.. if we dont give this a random node port will be generated
