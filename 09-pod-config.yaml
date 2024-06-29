@@ -12,7 +12,7 @@ spec:
         name: daws78s
     #--------------Below code is if you wnat to select only few config keys from config map----------------------
     # env: 
-    # - name: course
+    # - name: course-1
     #   valueFrom:
     #     configMapKeyRef: #this refers config map values from 08-config-map.yaml .. so that this pod doesnt need any update if config value changes, only configmap can be updated and that reflects here also
     #       name: daws78s 

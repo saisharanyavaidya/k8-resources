@@ -1,9 +1,10 @@
-# this is ClusterIP service
+# this is NodePort service
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-node-port
 spec:
+  type: NodePort #this means it is a NodePort service
   selector: # below values are given as labels in 12-nginx.yaml...So this service identifies which pod to be called using these selectors
     name: frontend
     project: expense
