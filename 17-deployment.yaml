@@ -25,4 +25,5 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+        #image: nginx
+        image: nginx:stable-perl # image is updated with new one to see if new pods are created as part of deployment process
