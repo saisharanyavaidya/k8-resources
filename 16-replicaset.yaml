@@ -6,16 +6,16 @@ metadata:
   labels: 
     app: nginx
     tier: frontend
-  spec:
+spec:
     # modify replicas according to your case
-    replicas: 3
+  replicas: 3
     # here selector refers to which pod you want to replicate
-    selector:
+  selector:
     matchLabels:
       tier: frontend
       app: nginx
     # below is pod definition
-    template:
+  template:
     metadata:
       labels:
         tier: frontend
