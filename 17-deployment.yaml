@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx-dep
+    purpose: deployment
+    tier: web
+spec:
+  replicas: 20
+  selector:
+    matchLabels:
+      app: nginx
+      tier: web
+      project: test-project
+  #pod definition
+  template:
+    metadata:
+      labels:
+        app: nginx
+        tier: web
+        project: test-project
+        # you can have any number of extra key and value pairs in pod labels.. but in selector above, you should have anyone of these key value pair to find this pod using matchlabels by selector
+        extra-key: extra-value
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
