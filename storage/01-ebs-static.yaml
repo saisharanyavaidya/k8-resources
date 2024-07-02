@@ -8,9 +8,9 @@ spec:
   capacity:
     storage: 100Gi
   csi:
-    driver: ebs.csi.aws.com
+    driver: ebs.csi.aws.com # drivers we installed manually using commands
     fsType: ext4
-    volumeHandle: vol-0aaa6940e77d2862a # give volume id of EBS volume you created
+    volumeHandle: vol-0aaa6940e77d2862a # give volume id of EBS volume you created manually
 ---
 
 apiVersion: v1
@@ -24,7 +24,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi # this should be less than the Persistant volume storage created above i.e., 100 Gi
+      storage: 5Gi # this should be less than the Persistant volume storage created above i.e., 100 Gi.. here we are asking PV for storage of our Pod data
 
 ---
 
@@ -41,9 +41,9 @@ spec:
     image: nginx
     volumeMounts:
     - name: persistent-storage
-      mountPath: /usr/share/nginx/html
+      mountPath: /usr/share/nginx/html #mount the volume on this path
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1d # check AWS and give AZ on which our nodes/EC2 instances are created 
+    topology.kubernetes.io/zone: us-east-1d # this is to control on which AZ instance our pod should be created.. you need to check in which zone you created volume and give the same AZ here so that pod gets created in instance available in that zone only and gets connected to volume of same AZ
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
