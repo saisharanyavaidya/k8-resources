@@ -7,4 +7,4 @@ parameters:
   provisioningMode: efs-ap
   fileSystemId: fs-08dd329952a062a80 # give file system id of EFS we created manuallybbbn
   directoryPerms: "700"
-  basePath: "/expense"
+  basePath: "/expense" # this means this is the storage class created for expense project
