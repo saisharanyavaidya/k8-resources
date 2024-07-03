@@ -1,0 +1,10 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: efs-dynamic
+provisioner: efs.csi.aws.com # drivers installed
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-08dd329952a062a80 # give file system id of EFS we created manuallybbbn
+  directoryPerms: "700"
+  basePath: "/expense"
