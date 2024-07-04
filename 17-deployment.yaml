@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx
   labels:
-    app: nginx-dep
+    app: nginx
     purpose: deployment
     tier: web
 spec:
@@ -27,3 +27,17 @@ spec:
       - name: nginx
         #image: nginx
         image: nginx:stable-perl # image is updated with new one to see if new pods are created as part of deployment process
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    app: nginx
+    tier: web
+    project: test-project
+  ports:
+  - protocol: TCP
+    port: 80 #service-port
+    targetPort: 80 #target-port
