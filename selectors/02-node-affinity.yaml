@@ -6,7 +6,7 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
+        nodeSelectorTerms: #this will match with the node labels we created in command line.. check notes
         - matchExpressions:
           - key: project
             operator: In
@@ -15,7 +15,7 @@ spec:
   containers:
   - name: with-node-affinity
     image: nginx
-  tolerations:
+  tolerations: # this is also added here because we already gave taint to that node, so we had to add toleratins section.. otherwise if only labels were given to pod, and no taint is added.. we dont need tolerations section here
   - key: "project"
     operator: "Equal"
     value: "expense"
