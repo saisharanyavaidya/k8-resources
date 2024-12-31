@@ -12,6 +12,6 @@ spec:
     environment: dev
   ports:
   - protocol: TCP
-    port: 8011 #this is service port
+    port: 80 #this is service port
     targetPort: 80  #this is nginx server port.. means pod port
     nodePort: 32760 # this means we are giving a fixed node port.. if we dont give this a random node port will be generated
