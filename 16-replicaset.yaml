@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: nginx-replicaset
+  name: nginx
   # these labels belongs to replicaset resource
   labels: 
     app: nginx-rs
@@ -14,7 +14,7 @@ spec:
     matchLabels:
       tier: frontend
       app: nginx
-    # below is pod definition
+    # below is pod definition, we need not give apiVersion, kind again here.. we can directly give pod definition as template
   template:
     metadata:
       labels:
